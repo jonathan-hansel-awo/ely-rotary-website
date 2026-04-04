@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rotary Club of Ely — Style Tile</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      /* Primary */
+      --rotary-blue: #17458F;
+      --rotary-blue-dark: #0C2340;
+      --rotary-blue-light: #1A5DC7;
+      --rotary-gold: #F7A81B;
+      --rotary-gold-light: #FFC658;
+      --rotary-gold-dark: #D4900F;
+      --rotary-azure: #0067C8;
+      --cranberry: #872455;
+
+      /* Neutrals (warm-shifted) */
+      --white: #FFFFFF;
+      --off-white: #F8F7F4;
+      --grey-100: #F1F0ED;
+      --grey-200: #E2E0DB;
+      --grey-300: #C5C2BA;
+      --grey-500: #8A8681;
+      --grey-700: #4A4845;
+      --grey-900: #1A1918;
+
+      /* Semantic */
+      --text-primary: #1A1918;
+      --text-secondary: #4A4845;
+      --text-muted: #8A8681;
+      --bg-primary: #F8F7F4;
+      --bg-card: #FFFFFF;
+      --link: #0067C8;
+      --focus-ring: #F7A81B;
+      --success: #2D7A3A;
+      --error: #C23333;
+
+      /* Typography */
+      --font-heading: 'Plus Jakarta Sans', sans-serif;
+      --font-body: 'Inter', sans-serif;
+
+      /* Spacing */
+      --space-1: 0.25rem;
+      --space-2: 0.5rem;
+      --space-3: 0.75rem;
+      --space-4: 1rem;
+      --space-6: 1.5rem;
+      --space-8: 2rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+
+      /* Radii */
+      --radius-sm: 0.375rem;
+      --radius-md: 0.75rem;
+      --radius-lg: 1rem;
+      --radius-full: 9999px;
+
+      /* Shadows */
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+      --shadow-md: 0 4px 12px rgba(0,0,0,0.08), 0 2px 4px rgba(0,0,0,0.04);
+      --shadow-lg: 0 12px 32px rgba(0,0,0,0.1), 0 4px 8px rgba(0,0,0,0.04);
+      --shadow-card-hover: 0 16px 40px rgba(0,0,0,0.12), 0 6px 12px rgba(0,0,0,0.06);
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* ==================== HEADER ==================== */
+    .style-tile-header {
+      background: var(--rotary-blue-dark);
+      padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 4vw, 3rem);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .style-tile-header::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -20%;
+      width: 140%;
+      height: 200%;
+      background: radial-gradient(ellipse at 30% 50%, rgba(23,69,143,0.4) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 20%, rgba(247,168,27,0.08) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    .style-tile-header h1 {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(1.8rem, 4vw, 3rem);
+      color: var(--white);
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      position: relative;
+    }
+    .style-tile-header p {
+      color: #B8C4D8;
+      font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+      margin-top: var(--space-3);
+      position: relative;
+    }
+    .style-tile-header .gold-bar {
+      display: inline-block;
+      width: 48px;
+      height: 3px;
+      background: var(--rotary-gold);
+      border-radius: 2px;
+      margin-top: var(--space-6);
+      position: relative;
+    }
+
+    /* ==================== SECTION SYSTEM ==================== */
+    .section {
+      padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 4vw, 3rem);
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+    .section-full {
+      padding: clamp(2rem, 4vw, 4rem) clamp(1rem, 4vw, 3rem);
+      max-width: 100%;
+    }
+    .section-eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: clamp(0.75rem, 1vw, 0.875rem);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--rotary-gold-dark);
+      margin-bottom: var(--space-2);
+    }
+    .section-title {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.5rem, 3vw, 2.25rem);
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: var(--space-2);
+    }
+    .section-subtitle {
+      font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+      color: var(--text-secondary);
+      max-width: 600px;
+      margin-bottom: var(--space-8);
+    }
+    .bg-off-white { background: var(--off-white); }
+    .bg-white { background: var(--white); }
+    .bg-blue { background: var(--rotary-blue); }
+    .bg-blue-dark { background: var(--rotary-blue-dark); }
+
+    /* ==================== COLOUR PALETTE ==================== */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .color-swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background: var(--bg-card);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+    }
+    .color-swatch:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .color-swatch .swatch-block {
+      height: 80px;
+      width: 100%;
+    }
+    .color-swatch .swatch-info {
+      padding: var(--space-3);
+    }
+    .color-swatch .swatch-name {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: var(--text-primary);
+      display: block;
+    }
+    .color-swatch .swatch-hex {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ==================== TYPOGRAPHY ==================== */
+    .type-specimen {
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-6);
+      border-bottom: 1px solid var(--grey-200);
+    }
+    .type-specimen:last-child { border-bottom: none; }
+    .type-specimen .type-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: var(--space-2);
+    }
+    .type-heading-5xl {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 6vw, 4.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    .type-heading-4xl {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+    .type-heading-3xl {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.6rem, 3vw, 2.5rem);
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+    .type-heading-2xl {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+    .type-heading-xl {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(1.15rem, 1.8vw, 1.5rem);
+      line-height: 1.3;
+      color: var(--text-primary);
+    }
+    .type-body {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(1rem, 1.2vw, 1.125rem);
+      line-height: 1.6;
+      color: var(--text-secondary);
+      max-width: 65ch;
+    }
+    .type-body-sm {
+      font-family: var(--font-body);
+      font-weight: 400;
+      font-size: clamp(0.875rem, 1vw, 1rem);
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    /* ==================== BUTTONS ==================== */
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      align-items: center;
+      margin-bottom: var(--space-6);
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: clamp(0.9rem, 1.1vw, 1rem);
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-sm);
+      border: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s ease-out;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+    .btn:focus-visible {
+      outline: 3px solid var(--focus-ring);
+      outline-offset: 2px;
+    }
+    .btn-primary {
+      background: var(--rotary-gold);
+      color: var(--grey-900);
+      border-color: var(--rotary-gold);
+    }
+    .btn-primary:hover {
+      background: var(--rotary-gold-dark);
+      border-color: var(--rotary-gold-dark);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-primary:active {
+      background: #B8800D;
+      transform: translateY(0);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: var(--rotary-blue);
+      border-color: var(--rotary-blue);
+    }
+    .btn-secondary:hover {
+      background: var(--rotary-blue);
+      color: var(--white);
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
+    }
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.5);
+    }
+    .btn-ghost:hover {
+      border-color: rgba(255,255,255,1);
+      background: rgba(255,255,255,0.1);
+    }
+    .btn-sm {
+      font-size: 0.85rem;
+      padding: var(--space-2) var(--space-4);
+    }
+
+    /* ==================== BADGES ==================== */
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+    .badge {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-sm);
+    }
+    .badge-category {
+      background: rgba(26,93,199,0.1);
+      color: var(--rotary-blue);
+    }
+    .badge-upcoming {
+      background: rgba(247,168,27,0.15);
+      color: var(--rotary-gold-dark);
+    }
+    .badge-past {
+      background: var(--grey-200);
+      color: var(--grey-500);
+    }
+    .badge-featured {
+      background: rgba(135,36,85,0.1);
+      color: var(--cranberry);
+    }
+
+    /* ==================== CARDS ==================== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: var(--space-6);
+    }
+    .card {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+      cursor: pointer;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+    .card-image {
+      width: 100%;
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease-out;
+    }
+    .card:hover .card-image img {
+      transform: scale(1.05);
+    }
+    .card-image .badge {
+      position: absolute;
+      top: var(--space-3);
+      left: var(--space-3);
+      background: rgba(26,93,199,0.9);
+      color: white;
+      backdrop-filter: blur(4px);
+    }
+    .card-body {
+      padding: var(--space-6);
+    }
+    .card-title {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+      color: var(--text-primary);
+      line-height: 1.3;
+      margin-bottom: var(--space-2);
+    }
+    .card-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-3);
+    }
+    .card-desc {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      margin-bottom: var(--space-4);
+    }
+    .card-link {
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--rotary-azure);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-1);
+      transition: color 0.15s ease, gap 0.2s ease;
+    }
+    .card:hover .card-link {
+      color: var(--rotary-blue);
+      gap: var(--space-2);
+    }
+
+    /* ==================== HERO MOCKUP ==================== */
+    .hero-mockup {
+      position: relative;
+      min-height: 500px;
+      height: 60vh;
+      max-height: 700px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(135deg, rgba(12,35,64,0.85) 0%, rgba(23,69,143,0.6) 50%, rgba(12,35,64,0.75) 100%),
+        linear-gradient(180deg, rgba(12,35,64,0.3) 0%, rgba(12,35,64,0.8) 100%);
+      background-color: var(--rotary-blue-dark);
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 80%, rgba(247,168,27,0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(26,93,199,0.15) 0%, transparent 40%);
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image:
+        radial-gradient(circle at 25% 25%, var(--white) 1px, transparent 1px),
+        radial-gradient(circle at 75% 75%, var(--white) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 clamp(1.5rem, 5vw, 4rem);
+      max-width: 800px;
+      animation: heroFadeUp 0.8s ease-out both;
+    }
+    @keyframes heroFadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .hero-eyebrow {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--rotary-gold);
+      margin-bottom: var(--space-4);
+      animation: heroFadeUp 0.8s ease-out 0.1s both;
+    }
+    .hero-title {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2.2rem, 5.5vw, 4rem);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      color: var(--white);
+      margin-bottom: var(--space-4);
+      animation: heroFadeUp 0.8s ease-out 0.15s both;
+    }
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.8);
+      max-width: 550px;
+      margin-bottom: var(--space-8);
+      animation: heroFadeUp 0.8s ease-out 0.25s both;
+    }
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      animation: heroFadeUp 0.8s ease-out 0.35s both;
+    }
+
+    /* ==================== IMPACT NUMBERS ==================== */
+    .impact-section {
+      background: var(--rotary-blue);
+      padding: clamp(3rem, 5vw, 5rem) clamp(1rem, 4vw, 3rem);
+      position: relative;
+      overflow: hidden;
+    }
+    .impact-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(255,255,255,0.05) 0%, transparent 60%);
+    }
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: var(--space-8);
+      max-width: 1000px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .impact-item {
+      text-align: center;
+    }
+    .impact-number {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      color: var(--white);
+      line-height: 1.15;
+      font-variant-numeric: tabular-nums;
+    }
+    .impact-gold-bar {
+      width: 32px;
+      height: 3px;
+      background: var(--rotary-gold);
+      border-radius: 2px;
+      margin: var(--space-3) auto;
+    }
+    .impact-label {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: clamp(0.9rem, 1.2vw, 1rem);
+      color: rgba(255,255,255,0.75);
+      line-height: 1.4;
+    }
+
+    /* ==================== SECTION HEADING DEMO ==================== */
+    .section-heading-demo {
+      padding: var(--space-8);
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      margin-bottom: var(--space-8);
+    }
+
+    /* ==================== ANIMATION DEMOS ==================== */
+    .animation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-6);
+    }
+    .animation-demo {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: var(--space-6);
+      text-align: center;
+    }
+    .animation-demo h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 1rem;
+      margin-bottom: var(--space-2);
+    }
+    .animation-demo p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: var(--space-4);
+    }
+    .animation-demo .demo-area {
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Hover lift demo */
+    .lift-box {
+      width: 80px;
+      height: 80px;
+      background: var(--rotary-blue);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease-out, box-shadow 0.2s ease-out;
+      cursor: pointer;
+    }
+    .lift-box:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-card-hover);
+    }
+
+    /* Fade in demo */
+    .fade-trigger { cursor: pointer; }
+    .fade-box {
+      width: 80px;
+      height: 80px;
+      background: var(--rotary-gold);
+      border-radius: var(--radius-md);
+      animation: fadeUpLoop 2.5s ease-out infinite;
+    }
+    @keyframes fadeUpLoop {
+      0% { opacity: 0; transform: translateY(16px); }
+      30% { opacity: 1; transform: translateY(0); }
+      70% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-8px); }
+    }
+
+    /* Count up demo */
+    .count-up-number {
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 2.5rem;
+      color: var(--rotary-blue);
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* Scale zoom demo */
+    .zoom-container {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      cursor: pointer;
+    }
+    .zoom-inner {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--rotary-blue), var(--rotary-blue-light));
+      transition: transform 0.3s ease-out;
+    }
+    .zoom-container:hover .zoom-inner {
+      transform: scale(1.15);
+    }
+
+    /* ==================== FORM DEMO ==================== */
+    .form-demo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      max-width: 600px;
+    }
+    @media (max-width: 640px) {
+      .form-demo { grid-template-columns: 1fr; }
+    }
+    .form-demo .full-width { grid-column: 1 / -1; }
+    .form-group label {
+      display: block;
+      font-weight: 500;
+      font-size: 0.9rem;
+      color: var(--text-primary);
+      margin-bottom: var(--space-1);
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 1rem;
+      padding: var(--space-3) var(--space-4);
+      border: 2px solid var(--grey-200);
+      border-radius: var(--radius-sm);
+      background: var(--white);
+      color: var(--text-primary);
+      transition: border-color 0.2s ease;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--rotary-blue);
+      box-shadow: 0 0 0 3px rgba(247,168,27,0.3);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: var(--grey-300);
+    }
+
+    /* ==================== NAV DEMO ==================== */
+    .nav-demo {
+      background: var(--bg-card);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      padding: 0 var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      margin-bottom: var(--space-8);
+      overflow-x: auto;
+    }
+    .nav-logo {
+      font-family: var(--font-heading);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--rotary-blue);
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    .nav-logo .wheel {
+      display: inline-block;
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--rotary-gold);
+      position: relative;
+    }
+    .nav-logo .wheel::after {
+      content: '';
+      position: absolute;
+      inset: 4px;
+      border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-body);
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      text-decoration: none;
+      transition: color 0.15s ease;
+      white-space: nowrap;
+    }
+    .nav-links a:hover { color: var(--rotary-blue); }
+    .nav-links a.active {
+      color: var(--rotary-blue);
+      position: relative;
+    }
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--rotary-gold);
+      border-radius: 1px;
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+    }
+
+    /* ==================== FOOTER DEMO ==================== */
+    .footer-demo {
+      background: var(--rotary-blue-dark);
+      padding: clamp(2rem, 4vw, 3rem) clamp(1rem, 4vw, 3rem);
+      border-radius: var(--radius-md);
+      margin-top: var(--space-8);
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: var(--space-8);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    @media (max-width: 768px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 480px) {
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+    .footer-demo h4 {
+      font-family: var(--font-heading);
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--white);
+      margin-bottom: var(--space-4);
+    }
+    .footer-demo p {
+      font-size: 0.85rem;
+      color: #B8C4D8;
+      line-height: 1.6;
+    }
+    .footer-demo a {
+      font-size: 0.85rem;
+      color: #B8C4D8;
+      text-decoration: none;
+      display: block;
+      padding: var(--space-1) 0;
+      transition: color 0.15s ease;
+    }
+    .footer-demo a:hover { color: var(--white); }
+    .footer-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      margin: var(--space-6) 0 var(--space-4);
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .footer-copyright {
+      text-align: center;
+      font-size: 0.8rem;
+      color: rgba(184,196,216,0.6);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ==================== SPACING DEMO ==================== */
+    .spacing-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: end;
+      gap: var(--space-4);
+      margin-bottom: var(--space-8);
+    }
+    .spacing-block {
+      text-align: center;
+    }
+    .spacing-bar {
+      background: var(--rotary-blue);
+      border-radius: 4px;
+      width: 40px;
+      margin: 0 auto var(--space-2);
+      opacity: 0.7;
+    }
+    .spacing-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ==================== RADIUS DEMO ==================== */
+    .radius-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-6);
+      margin-bottom: var(--space-8);
+    }
+    .radius-item {
+      text-align: center;
+    }
+    .radius-box {
+      width: 72px;
+      height: 72px;
+      background: var(--grey-100);
+      border: 2px solid var(--grey-200);
+      margin: 0 auto var(--space-2);
+    }
+    .radius-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      font-family: 'SF Mono', 'Fira Code', monospace;
+    }
+
+    /* ==================== SHADOW DEMO ==================== */
+    .shadow-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-8);
+      margin-bottom: var(--space-8);
+    }
+    .shadow-item { text-align: center; }
+    .shadow-box {
+      width: 100px;
+      height: 72px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      margin: 0 auto var(--space-2);
+    }
+    .shadow-label {
+      font-size: 0.7rem;
+      color: var(--text-muted);
+    }
+
+    /* ==================== UTILITY ==================== */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--grey-200);
+      margin: var(--space-6) 0;
+    }
+    .inline-note {
+      background: rgba(247,168,27,0.08);
+      border-left: 3px solid var(--rotary-gold);
+      padding: var(--space-4) var(--space-6);
+      border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin: var(--space-6) 0;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HEADER ==================== -->
+  <header class="style-tile-header">
+    <h1>Rotary Club of Ely</h1>
+    <p>This is the proposed look and feel for the new Rotary Club of Ely website. Scroll down to see the colour palette, typography, sample components, and a preview of how the homepage hero section will look.</p>
+    <span class="gold-bar"></span>
+  </header>
+
+  <!-- ==================== DESIGN DIRECTION ==================== -->
+  <section class="section">
+    <div class="section-eyebrow">Design Direction</div>
+    <h2 class="section-title">"Warm Community"</h2>
+    <p class="section-subtitle">Welcoming, established, community-minded, and quietly confident. A community site with the polish and craft that earns trust on first impression.</p>
+    <div class="inline-note">
+      <strong>Guiding principles:</strong> Warm over cold. Confident over loud. Local over generic. Modern through craft, not trend.
+    </div>
+  </section>
+
+  <!-- ==================== COLOUR PALETTE ==================== -->
+  <section class="section bg-white" style="padding-top: 0;">
+    <div class="section-eyebrow">Colour System</div>
+    <h2 class="section-title">Brand Colours</h2>
+    <p class="section-subtitle">Rooted in Rotary International's guidelines — Royal Blue and Gold as the pillars, extended with warm neutrals.</p>
+
+    <h3 style="font-family: var(--font-heading); font-weight: 600; font-size: 1rem; margin-bottom: var(--space-4); color: var(--text-secondary);">Primary & Extended</h3>
+    <div class="color-grid">
+      <div class="color-swatch"><div class="swatch-block" style="background: #17458F;"></div><div class="swatch-info"><span class="swatch-name">Royal Blue</span><span class="swatch-hex">#17458F</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #F7A81B;"></div><div class="swatch-info"><span class="swatch-name">Gold</span><span class="swatch-hex">#F7A81B</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #0067C8;"></div><div class="swatch-info"><span class="swatch-name">Azure</span><span class="swatch-hex">#0067C8</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #0C2340;"></div><div class="swatch-info"><span class="swatch-name">Blue Dark</span><span class="swatch-hex">#0C2340</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #1A5DC7;"></div><div class="swatch-info"><span class="swatch-name">Blue Light</span><span class="swatch-hex">#1A5DC7</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #FFC658;"></div><div class="swatch-info"><span class="swatch-name">Gold Light</span><span class="swatch-hex">#FFC658</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #D4900F;"></div><div class="swatch-info"><span class="swatch-name">Gold Dark</span><span class="swatch-hex">#D4900F</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #872455;"></div><div class="swatch-info"><span class="swatch-name">Cranberry</span><span class="swatch-hex">#872455</span></div></div>
+    </div>
+
+    <h3 style="font-family: var(--font-heading); font-weight: 600; font-size: 1rem; margin-bottom: var(--space-4); color: var(--text-secondary);">Warm Neutrals</h3>
+    <div class="color-grid">
+      <div class="color-swatch"><div class="swatch-block" style="background: #FFFFFF; border-bottom: 1px solid #E2E0DB;"></div><div class="swatch-info"><span class="swatch-name">White</span><span class="swatch-hex">#FFFFFF</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #F8F7F4;"></div><div class="swatch-info"><span class="swatch-name">Off-White</span><span class="swatch-hex">#F8F7F4</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #F1F0ED;"></div><div class="swatch-info"><span class="swatch-name">Grey 100</span><span class="swatch-hex">#F1F0ED</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #E2E0DB;"></div><div class="swatch-info"><span class="swatch-name">Grey 200</span><span class="swatch-hex">#E2E0DB</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #C5C2BA;"></div><div class="swatch-info"><span class="swatch-name">Grey 300</span><span class="swatch-hex">#C5C2BA</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #8A8681;"></div><div class="swatch-info"><span class="swatch-name">Grey 500</span><span class="swatch-hex">#8A8681</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #4A4845;"></div><div class="swatch-info"><span class="swatch-name">Grey 700</span><span class="swatch-hex">#4A4845</span></div></div>
+      <div class="color-swatch"><div class="swatch-block" style="background: #1A1918;"></div><div class="swatch-info"><span class="swatch-name">Grey 900</span><span class="swatch-hex">#1A1918</span></div></div>
+    </div>
+  </section>
+
+  <!-- ==================== TYPOGRAPHY ==================== -->
+  <section class="section">
+    <div class="section-eyebrow">Typography</div>
+    <h2 class="section-title">Type Scale</h2>
+    <p class="section-subtitle">Plus Jakarta Sans for headings (geometric clarity, warm terminals). Inter for body (optimised for screen reading). All sizes fluid via clamp().</p>
+
+    <div class="type-specimen"><div class="type-label">text-5xl · Plus Jakarta Sans ExtraBold · Hero headline</div><div class="type-heading-5xl">People of Action</div></div>
+    <div class="type-specimen"><div class="type-label">text-4xl · Plus Jakarta Sans ExtraBold · Impact numbers, page heroes</div><div class="type-heading-4xl">£45,000+ Raised</div></div>
+    <div class="type-specimen"><div class="type-label">text-3xl · Plus Jakarta Sans Bold · Page titles</div><div class="type-heading-3xl">Ely Aquafest 2026</div></div>
+    <div class="type-specimen"><div class="type-label">text-2xl · Plus Jakarta Sans Bold · Section headings</div><div class="type-heading-2xl">Our Charitable Impact</div></div>
+    <div class="type-specimen"><div class="type-label">text-xl · Plus Jakarta Sans SemiBold · Card titles, subsections</div><div class="type-heading-xl">Annual Fireworks Display Returns</div></div>
+    <div class="type-specimen"><div class="type-label">text-base · Inter Regular · Body text</div><div class="type-body">The Rotary Club of Ely has been serving the local community for over 15 years, organising events that bring people together and raising funds for causes that make a real difference in East Cambridgeshire. From the spectacular Aquafest on the River Great Ouse to the annual Fireworks display, our volunteers work tirelessly to create memorable experiences.</div></div>
+    <div class="type-specimen"><div class="type-label">text-sm · Inter Regular · Captions, metadata</div><div class="type-body-sm">Saturday 18 July 2026 · Riverside, Ely · Community Event</div></div>
+  </section>
+
+  <!-- ==================== NAVIGATION DEMO ==================== -->
+  <section class="section bg-white">
+    <div class="section-eyebrow">Components</div>
+    <h2 class="section-title">Navigation</h2>
+    <p class="section-subtitle">Fixed header with transparent-to-solid scroll transition. Active link highlighted with gold underline.</p>
+
+    <div class="nav-demo">
+      <div class="nav-logo">
+        <span class="wheel"></span>
+        Rotary Club of Ely
+      </div>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#" class="active">Events</a></li>
+          <li><a href="#">Our Impact</a></li>
+          <li><a href="#">News</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#" class="btn btn-primary btn-sm">Join Us</a></li>
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <!-- ==================== BUTTONS & BADGES ==================== -->
+  <section class="section">
+    <h3 class="section-title" style="font-size: 1.5rem;">Buttons</h3>
+    <p class="section-subtitle">Three variants: Primary (Gold) for key actions, Secondary (Blue outline) for supporting actions, Ghost (white) for dark backgrounds.</p>
+
+    <div class="button-row">
+      <button class="btn btn-primary">Get Involved</button>
+      <button class="btn btn-primary btn-sm">Join Us</button>
+      <button class="btn btn-secondary">View All Events</button>
+      <button class="btn btn-secondary btn-sm">Learn More</button>
+    </div>
+    <div style="background: var(--rotary-blue-dark); display: inline-flex; gap: var(--space-4); padding: var(--space-6); border-radius: var(--radius-md); margin-bottom: var(--space-8);">
+      <button class="btn btn-ghost">Learn More</button>
+      <button class="btn btn-primary">Get in Touch</button>
+    </div>
+
+    <hr class="divider">
+
+    <h3 class="section-title" style="font-size: 1.5rem;">Badges</h3>
+    <div class="badge-row">
+      <span class="badge badge-category">Aquafest</span>
+      <span class="badge badge-category">Fireworks</span>
+      <span class="badge badge-category">Community</span>
+      <span class="badge badge-upcoming">Upcoming</span>
+      <span class="badge badge-past">Past</span>
+      <span class="badge badge-featured">Featured</span>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION HEADING PATTERN ==================== -->
+  <section class="section bg-white">
+    <h3 class="section-title" style="font-size: 1.5rem; margin-bottom: var(--space-6);">Section Heading Pattern</h3>
+    <div class="section-heading-demo">
+      <div class="section-eyebrow">Upcoming Events</div>
+      <h2 class="section-title">What's Happening in Ely</h2>
+      <p class="section-subtitle" style="margin-bottom: 0;">Join us for our upcoming community events — from summer festivals to winter fireworks, there's something for everyone.</p>
+    </div>
+  </section>
+
+  <!-- ==================== CARDS ==================== -->
+  <section class="section">
+    <div class="section-eyebrow">Content Cards</div>
+    <h2 class="section-title">Event, News & Impact Cards</h2>
+    <p class="section-subtitle">Consistent card pattern across all content types. Hover to see the lift, shadow, and image zoom interactions.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-image" style="background: linear-gradient(135deg, #1A5DC7 0%, #17458F 100%);">
+          <span class="badge" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px);">AQUAFEST</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Ely Aquafest 2026</h3>
+          <div class="card-meta">Saturday 18 July 2026 · Riverside, Ely</div>
+          <p class="card-desc">Our flagship summer event returns with boat races, live music, food stalls, and family entertainment along the beautiful River Great Ouse.</p>
+          <a href="#" class="card-link">Read more →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image" style="background: linear-gradient(135deg, #0C2340 0%, #872455 100%);">
+          <span class="badge" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px);">FIREWORKS</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Ely Fireworks Night</h3>
+          <div class="card-meta">Saturday 1 November 2026 · Paradise Centre</div>
+          <p class="card-desc">East Cambridgeshire's biggest fireworks display — a spectacular evening of music, food, and unforgettable pyrotechnics.</p>
+          <a href="#" class="card-link">Read more →</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-image" style="background: linear-gradient(135deg, #D4900F 0%, #F7A81B 100%);">
+          <span class="badge" style="background: rgba(255,255,255,0.2); backdrop-filter: blur(8px);">COMMUNITY</span>
+        </div>
+        <div class="card-body">
+          <h3 class="card-title">Spring Community Clean-Up</h3>
+          <div class="card-meta">Saturday 14 March 2026 · Ely City Centre</div>
+          <p class="card-desc">Volunteers came together to spruce up Ely's green spaces, riverbanks, and public areas ahead of the summer season.</p>
+          <a href="#" class="card-link">Read more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== HERO MOCKUP ==================== -->
+  <section class="section-full" style="padding: 0;">
+    <div class="section" style="padding-bottom: var(--space-4);">
+      <div class="section-eyebrow">Homepage Hero</div>
+      <h2 class="section-title">Hero Section Mockup</h2>
+      <p class="section-subtitle">Full-bleed photography with gradient overlay. Content fades up on load. Ken Burns zoom on the background image.</p>
+    </div>
+    <div class="hero-mockup">
+      <div class="hero-bg"></div>
+      <div class="hero-pattern"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Rotary Club of Ely</div>
+        <h1 class="hero-title">People of Action,<br>Right Here in Ely</h1>
+        <p class="hero-subtitle">We organise events that bring the community together, raise funds for local causes, and create lasting positive change in East Cambridgeshire.</p>
+        <div class="hero-buttons">
+          <a href="#" class="btn btn-primary">See What's Coming Up</a>
+          <a href="#" class="btn btn-ghost">Learn About Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== IMPACT NUMBERS ==================== -->
+  <section class="impact-section">
+    <div style="max-width: 1100px; margin: 0 auto; text-align: center; margin-bottom: var(--space-8); position: relative;">
+      <div class="section-eyebrow" style="color: var(--rotary-gold);">Our Impact</div>
+      <h2 style="font-family: var(--font-heading); font-weight: 700; font-size: clamp(1.5rem, 3vw, 2.25rem); color: white; line-height: 1.3;">Making a Difference in Ely</h2>
+    </div>
+    <div class="impact-grid">
+      <div class="impact-item">
+        <div class="impact-number" id="counter1">£45,000+</div>
+        <div class="impact-gold-bar"></div>
+        <div class="impact-label">Raised for Local Causes</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-number" id="counter2">30+</div>
+        <div class="impact-gold-bar"></div>
+        <div class="impact-label">Charities & Causes Supported</div>
+      </div>
+      <div class="impact-item">
+        <div class="impact-number" id="counter3">15+</div>
+        <div class="impact-gold-bar"></div>
+        <div class="impact-label">Years Serving the Community</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== ANIMATION DEMOS ==================== -->
+  <section class="section">
+    <div class="section-eyebrow">Motion Design</div>
+    <h2 class="section-title">Animation Behaviours</h2>
+    <p class="section-subtitle">Purposeful, subtle motion that enhances without overwhelming. All animations respect prefers-reduced-motion.</p>
+
+    <div class="animation-grid">
+      <div class="animation-demo">
+        <h4>Card Hover Lift</h4>
+        <p>translateY(-4px) + shadow deepen · 200ms ease-out</p>
+        <div class="demo-area"><div class="lift-box"></div></div>
+      </div>
+      <div class="animation-demo">
+        <h4>Scroll Fade-Up</h4>
+        <p>opacity 0→1, translateY 20px→0 · 400ms ease-out</p>
+        <div class="demo-area"><div class="fade-box"></div></div>
+      </div>
+      <div class="animation-demo">
+        <h4>Image Zoom on Hover</h4>
+        <p>scale(1) → scale(1.05), contained · 300ms ease-out</p>
+        <div class="demo-area"><div class="zoom-container"><div class="zoom-inner"></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== FORM DEMO ==================== -->
+  <section class="section bg-white">
+    <div class="section-eyebrow">Contact Form</div>
+    <h2 class="section-title">Enquiry Form Style</h2>
+    <p class="section-subtitle">Clean, generous inputs with clear focus states. Blue border + gold glow on focus.</p>
+
+    <div class="form-demo">
+      <div class="form-group">
+        <label>Name</label>
+        <input type="text" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="your@email.com">
+      </div>
+      <div class="form-group full-width">
+        <label>I'm interested in...</label>
+        <select>
+          <option>General Enquiry</option>
+          <option>Joining the Club</option>
+          <option>Event Information</option>
+          <option>Partnership</option>
+        </select>
+      </div>
+      <div class="form-group full-width">
+        <label>Message</label>
+        <textarea placeholder="Tell us how we can help..."></textarea>
+      </div>
+      <div>
+        <button class="btn btn-primary">Send Enquiry</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SPACING, RADIUS, SHADOWS ==================== -->
+  <section class="section">
+    <div class="section-eyebrow">Design Tokens</div>
+    <h2 class="section-title">Spacing, Radius & Shadows</h2>
+    <p class="section-subtitle">The foundational values that ensure consistency across every component and layout.</p>
+
+    <h3 style="font-family: var(--font-heading); font-weight: 600; font-size: 1rem; margin-bottom: var(--space-4); color: var(--text-secondary);">Spacing Scale</h3>
+    <div class="spacing-row">
+      <div class="spacing-block"><div class="spacing-bar" style="height: 4px;"></div><div class="spacing-label">4px</div></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 8px;"></div><div class="spacing-label">8px</div></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 12px;"></div><div class="spacing-label">12px</div></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 16px;"></div><div class="spacing-label">16px</div></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 24px;"></div><div class="spacing-label">24px</div></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 32px;"></div><div class="spacing-label">32px</div></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 48px;"></div><div class="spacing-label">48px</div></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 64px;"></div><div class="spacing-label">64px</div></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 80px;"></div><div class="spacing-label">80px</div></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 96px;"></div><div class="spacing-label">96px</div></div>
+    </div>
+
+    <h3 style="font-family: var(--font-heading); font-weight: 600; font-size: 1rem; margin-bottom: var(--space-4); color: var(--text-secondary);">Border Radius</h3>
+    <div class="radius-row">
+      <div class="radius-item"><div class="radius-box" style="border-radius: 6px;"></div><div class="radius-label">6px sm</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius: 12px;"></div><div class="radius-label">12px md</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius: 16px;"></div><div class="radius-label">16px lg</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius: 24px;"></div><div class="radius-label">24px xl</div></div>
+      <div class="radius-item"><div class="radius-box" style="border-radius: 9999px;"></div><div class="radius-label">full</div></div>
+    </div>
+
+    <h3 style="font-family: var(--font-heading); font-weight: 600; font-size: 1rem; margin-bottom: var(--space-4); color: var(--text-secondary);">Shadows</h3>
+    <div class="shadow-row">
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow: var(--shadow-sm);"></div><div class="shadow-label">Small</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow: var(--shadow-md);"></div><div class="shadow-label">Medium</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow: var(--shadow-lg);"></div><div class="shadow-label">Large</div></div>
+      <div class="shadow-item"><div class="shadow-box" style="box-shadow: var(--shadow-card-hover);"></div><div class="shadow-label">Card Hover</div></div>
+    </div>
+  </section>
+
+  <!-- ==================== FOOTER DEMO ==================== -->
+  <section class="section">
+    <div class="section-eyebrow">Footer</div>
+    <h2 class="section-title">Footer Design</h2>
+    <p class="section-subtitle">Deep navy background. Warm blue-tinted text. Four-column layout on desktop, stacking on mobile.</p>
+
+    <div class="footer-demo">
+      <div class="footer-grid">
+        <div>
+          <h4>Rotary Club of Ely</h4>
+          <p>Serving the Ely community through events, volunteering, and charitable giving. Part of Rotary International's global network of 1.2 million members.</p>
+        </div>
+        <div>
+          <h4>Explore</h4>
+          <a href="#">Events</a>
+          <a href="#">Our Impact</a>
+          <a href="#">News</a>
+          <a href="#">About</a>
+        </div>
+        <div>
+          <h4>Get Involved</h4>
+          <a href="#">Join the Club</a>
+          <a href="#">Volunteer</a>
+          <a href="#">Contact Us</a>
+        </div>
+        <div>
+          <h4>Meet With Us</h4>
+          <p>Every Thursday at 7:00 PM<br>The Lamb Hotel, Ely<br>CB7 4EJ</p>
+          <a href="#" style="margin-top: var(--space-3); display: inline-block;">hello@rotaryclubofely.co.uk</a>
+        </div>
+      </div>
+      <hr class="footer-divider">
+      <div class="footer-copyright">© 2026 Rotary Club of Ely. Part of Rotary International.</div>
+    </div>
+  </section>
+
+  <div style="height: var(--space-12);"></div>
+
+</body>
+</html>
