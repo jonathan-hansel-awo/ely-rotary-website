@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rotary Club of Ely — Homepage Mockup v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--blue:#17458F;--blue-dark:#0C2340;--blue-light:#1A5DC7;
+--gold:#F7A81B;--gold-light:#FFC658;--gold-dark:#D4900F;
+--azure:#0067C8;--cranberry:#872455;
+--white:#fff;--off-white:#F8F7F4;--grey-100:#F1F0ED;--grey-200:#E2E0DB;
+--grey-300:#C5C2BA;--grey-500:#8A8681;--grey-700:#4A4845;--grey-900:#1A1918;
+--font-h:'Plus Jakarta Sans',sans-serif;--font-b:'Inter',sans-serif;
+--r-sm:0.375rem;--r-md:0.75rem;--r-lg:1rem;--r-xl:1.5rem;
+--s-sm:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+--s-md:0 4px 12px rgba(0,0,0,.08),0 2px 4px rgba(0,0,0,.04);
+--s-lg:0 12px 32px rgba(0,0,0,.1),0 4px 8px rgba(0,0,0,.04);
+--s-hover:0 16px 40px rgba(0,0,0,.12),0 6px 12px rgba(0,0,0,.06);
+}
+body{font-family:var(--font-b);background:var(--off-white);color:var(--grey-900);line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+/* ===== NAV BAR (rounded rectangle, frosted glass) ===== */
+.nav-bar{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:100;width:min(94vw,1200px);height:56px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 20px;transition:all .35s ease;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
+.nav-bar.scrolled{background:rgba(255,255,255,.93);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:rgba(0,0,0,.06);box-shadow:var(--s-md)}
+.nav-bar .logo{display:flex;align-items:center;gap:8px;font-family:var(--font-h);font-weight:700;font-size:.88rem;color:#fff;white-space:nowrap;transition:color .35s}
+.nav-bar.scrolled .logo{color:var(--blue)}
+.logo .wheel{width:26px;height:26px;border-radius:50%;background:var(--gold);position:relative;flex-shrink:0}
+.logo .wheel::after{content:'';position:absolute;inset:4px;border-radius:50%;border:2px solid rgba(255,255,255,.5)}
+.nav-links{display:flex;align-items:center;gap:clamp(10px,1.8vw,22px);list-style:none}
+.nav-links a{font-family:var(--font-b);font-weight:500;font-size:.82rem;color:rgba(255,255,255,.85);transition:color .2s;white-space:nowrap}
+.nav-bar.scrolled .nav-links a{color:var(--grey-700)}
+.nav-links a:hover,.nav-links a.active{color:var(--gold)}
+.nav-bar.scrolled .nav-links a.active{color:var(--blue);position:relative}
+.nav-bar.scrolled .nav-links a.active::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:2px;background:var(--gold);border-radius:1px}
+.nav-links .members{font-size:.75rem;opacity:.7}
+.nav-links .members::after{content:' ↗';font-size:.6rem}
+.btn-join{background:var(--gold);color:var(--grey-900);font-family:var(--font-b);font-weight:600;font-size:.78rem;padding:7px 16px;border-radius:var(--r-sm);border:none;cursor:pointer;transition:all .2s;white-space:nowrap}
+.btn-join:hover{background:var(--gold-dark);transform:translateY(-1px);box-shadow:var(--s-md)}
+@media(max-width:860px){.nav-links{display:none}}
+
+/* ===== HERO ===== */
+.hero{padding:110px clamp(16px,4vw,48px) 60px;max-width:1300px;margin:0 auto;display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(24px,4vw,56px);align-items:center}
+.hero-text{position:relative;z-index:2}
+.hero-eyebrow{font-family:var(--font-b);font-weight:500;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em;color:var(--gold-dark);margin-bottom:10px;opacity:0;animation:fadeIn .5s ease .1s forwards}
+.hero-bar{width:48px;height:3px;background:var(--gold);border-radius:2px;margin-bottom:18px;transform:scaleX(0);transform-origin:left;animation:drawBar .5s ease .25s forwards}
+@keyframes drawBar{to{transform:scaleX(1)}}
+.hero-title{font-family:var(--font-h);font-weight:800;font-size:clamp(2rem,4.5vw,3.5rem);line-height:1.08;letter-spacing:-.02em;color:var(--grey-900);margin-bottom:18px;opacity:0;animation:fadeUp .7s ease .2s forwards}
+.hero-title span{color:var(--blue)}
+.hero-sub{font-size:clamp(.92rem,1.2vw,1.1rem);color:var(--grey-700);max-width:440px;margin-bottom:28px;opacity:0;animation:fadeUp .6s ease .4s forwards}
+.hero-btns{display:flex;flex-wrap:wrap;gap:12px;opacity:0;animation:fadeIn .5s ease .55s forwards}
+.btn{display:inline-flex;align-items:center;gap:8px;font-family:var(--font-b);font-weight:600;font-size:.92rem;padding:11px 26px;border-radius:var(--r-sm);border:2px solid transparent;cursor:pointer;transition:all .2s ease-out}
+.btn-p{background:var(--gold);color:var(--grey-900);border-color:var(--gold)}
+.btn-p:hover{background:var(--gold-dark);border-color:var(--gold-dark);transform:translateY(-1px);box-shadow:var(--s-md)}
+.btn-s{background:transparent;color:var(--blue);border-color:var(--blue)}
+.btn-s:hover{background:var(--blue);color:#fff;transform:translateY(-1px)}
+.hero-img-wrap{position:relative;opacity:0;animation:heroIn .9s ease .15s forwards}
+@keyframes heroIn{from{opacity:0;transform:scale(.96)}to{opacity:1;transform:scale(1)}}
+.hero-img{width:100%;aspect-ratio:4/5;border-radius:24px;overflow:hidden;box-shadow:var(--s-lg);position:relative}
+.hero-img-inner{width:100%;height:100%;background:linear-gradient(135deg,#1a3a6e,#17458F 40%,#1A5DC7);animation:kb 20s ease-in-out infinite alternate;position:relative}
+.hero-img-inner::after{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23fff' fill-opacity='.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+@keyframes kb{0%{transform:scale(1)}100%{transform:scale(1.07) translate(-1%,-1%)}}
+.hero-img .img-note{position:absolute;bottom:20px;left:20px;right:20px;color:rgba(255,255,255,.5);font-size:.75rem;font-style:italic}
+.deco{position:absolute;border-radius:50%;z-index:-1}
+.deco.c1{width:260px;height:260px;top:-30px;right:-50px;border:2px solid rgba(26,93,199,.08)}
+.deco.c2{width:140px;height:140px;bottom:-20px;left:-30px;border:2px solid rgba(247,168,27,.1)}
+@media(max-width:860px){
+.hero{grid-template-columns:1fr;text-align:center;padding-top:96px;padding-bottom:32px}
+.hero-sub{margin:0 auto 24px}.hero-btns{justify-content:center}
+.hero-img{aspect-ratio:16/10;border-radius:16px}.deco{display:none}
+}
+
+/* ===== BADGES ===== */
+.badge{display:inline-block;font-family:var(--font-b);font-weight:500;font-size:.68rem;text-transform:uppercase;letter-spacing:.04em;padding:3px 9px;border-radius:var(--r-sm)}
+.badge-cat{background:rgba(26,93,199,.9);color:#fff;backdrop-filter:blur(6px)}
+.badge-upcoming{background:rgba(247,168,27,.15);color:var(--gold-dark)}
+.badge-past{background:var(--grey-200);color:var(--grey-500)}
+.badge-featured{background:rgba(135,36,85,.1);color:var(--cranberry)}
+.badge-pinned{background:rgba(247,168,27,.13);color:var(--gold-dark)}
+/* On dark card images */
+.badge-glass{background:rgba(255,255,255,.18);backdrop-filter:blur(8px);color:#fff}
+
+/* ===== EVENTS ===== */
+.events-sec{padding:0 clamp(16px,4vw,48px) clamp(40px,5vw,72px);max-width:1300px;margin:-1.5rem auto 0;position:relative;z-index:10}
+.sec-hdr{margin-bottom:clamp(20px,3vw,36px)}
+.sec-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:8px}
+.eyebrow{font-family:var(--font-b);font-weight:500;font-size:clamp(.7rem,.85vw,.8rem);text-transform:uppercase;letter-spacing:.05em;color:var(--gold-dark);margin-bottom:5px}
+.sec-title{font-family:var(--font-h);font-weight:700;font-size:clamp(1.3rem,2.3vw,1.9rem);color:var(--grey-900);line-height:1.25}
+.sec-link{font-weight:500;font-size:.85rem;color:var(--azure);transition:color .15s}
+.sec-link:hover{color:var(--blue)}
+.ev-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:18px}
+.ev-card{background:#fff;border-radius:var(--r-md);box-shadow:var(--s-sm);overflow:hidden;cursor:pointer;transition:transform .2s,box-shadow .2s}
+.ev-card:hover{transform:translateY(-4px);box-shadow:var(--s-hover)}
+.ev-img{width:100%;overflow:hidden;position:relative}
+.ev-img-bg{width:100%;height:100%;transition:transform .3s}
+.ev-card:hover .ev-img-bg{transform:scale(1.05)}
+.ev-card.lg .ev-img{height:270px}
+.ev-card.sm .ev-img{height:125px}
+.ev-img .badge{position:absolute;top:10px;left:10px}
+.ev-img .date-pill{position:absolute;top:10px;right:10px;background:#fff;border-radius:var(--r-sm);padding:5px 9px;text-align:center;box-shadow:var(--s-sm)}
+.date-pill .d{font-family:var(--font-h);font-weight:800;font-size:1.2rem;line-height:1;color:var(--grey-900)}
+.date-pill .m{font-family:var(--font-b);font-weight:500;font-size:.58rem;text-transform:uppercase;letter-spacing:.05em;color:var(--grey-500)}
+.ev-img .badges-row{position:absolute;bottom:10px;left:10px;display:flex;gap:6px}
+.ev-body{padding:clamp(14px,2vw,22px)}
+.ev-title{font-family:var(--font-h);font-weight:600;font-size:clamp(.95rem,1.2vw,1.15rem);line-height:1.3;margin-bottom:4px}
+.ev-meta{font-size:.78rem;color:var(--grey-500);margin-bottom:6px}
+.ev-desc{font-size:.85rem;color:var(--grey-700);line-height:1.55;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:10px}
+.ev-desc.l3{-webkit-line-clamp:3}
+.ev-link{font-weight:500;font-size:.82rem;color:var(--azure);display:inline-flex;align-items:center;gap:4px;transition:gap .2s,color .15s}
+.ev-card:hover .ev-link{gap:8px;color:var(--blue)}
+.ev-card.lg{border-left:3px solid var(--gold)}
+.ev-right{display:flex;flex-direction:column;gap:18px}
+@media(max-width:860px){
+.ev-grid{grid-template-columns:1fr;gap:14px}
+.ev-card.lg .ev-img{height:200px}.ev-card.lg{border-left:none;border-top:3px solid var(--gold)}
+}
+
+/* ===== WAVE ===== */
+.wave{width:100%;overflow:hidden;line-height:0}.wave svg{display:block;width:100%;height:clamp(28px,4.5vw,56px)}
+.wave.flip{transform:rotate(180deg)}
+
+/* ===== IMPACT ===== */
+.impact{background:var(--blue);position:relative;padding:clamp(44px,5vw,72px) clamp(16px,4vw,48px);overflow:hidden}
+.impact::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 65% 40%,rgba(255,255,255,.05),transparent 60%)}
+.imp-deco{position:absolute;border:2px solid rgba(255,255,255,.07);border-radius:50%}
+.imp-d1{width:180px;height:180px;top:-30px;right:8%}.imp-d2{width:100px;height:100px;bottom:15px;left:4%}.imp-d3{width:70px;height:70px;top:35%;left:42%}
+.imp-hdr{text-align:center;margin-bottom:clamp(28px,3.5vw,48px);position:relative}
+.imp-hdr .eyebrow{color:var(--gold)}.imp-hdr .sec-title{color:#fff}
+.imp-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,3.5vw,44px);max-width:880px;margin:0 auto;position:relative}
+.imp-item{text-align:center}
+.imp-num{font-family:var(--font-h);font-weight:800;font-size:clamp(2rem,4vw,3rem);color:#fff;line-height:1.15;font-variant-numeric:tabular-nums}
+.imp-num .pf{color:var(--gold)}
+.imp-bar{width:30px;height:3px;background:var(--gold);border-radius:2px;margin:8px auto}
+.imp-lbl{font-size:clamp(.8rem,1vw,.9rem);color:rgba(255,255,255,.68);font-weight:500}
+.imp-ctx{text-align:center;margin-top:clamp(20px,3vw,36px);position:relative}
+.imp-ctx p{font-size:.85rem;color:rgba(255,255,255,.5);max-width:480px;margin:0 auto 16px}
+.imp-ctx a{color:#fff;font-weight:500;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px;transition:border-color .2s}
+.imp-ctx a:hover{border-color:#fff}
+@media(max-width:640px){.imp-grid{grid-template-columns:1fr;gap:28px}.imp-deco{display:none}}
+
+/* ===== CAUSES ===== */
+.causes{padding:clamp(44px,5vw,72px) clamp(16px,4vw,48px);max-width:1300px;margin:0 auto}
+.ca-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}
+.ca-card{background:#fff;border-radius:var(--r-lg);padding:clamp(18px,2.2vw,28px);box-shadow:var(--s-sm);transition:transform .2s,box-shadow .2s;cursor:pointer}
+.ca-card:hover{transform:translateY(-2px);box-shadow:var(--s-md)}
+.ca-icon{width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.3rem;margin-bottom:14px}
+.ca-card h3{font-family:var(--font-h);font-weight:600;font-size:.98rem;margin-bottom:5px;line-height:1.3}
+.ca-card p{font-size:.82rem;color:var(--grey-700);line-height:1.55}
+.ca-card .ext{font-size:.75rem;color:var(--azure);margin-top:8px;display:inline-flex;align-items:center;gap:3px;font-weight:500}
+@media(max-width:640px){.ca-grid{grid-template-columns:1fr 1fr;gap:10px}.ca-card{padding:14px}}
+
+/* ===== NEWS ===== */
+.news{padding:clamp(44px,5vw,72px) clamp(16px,4vw,48px);max-width:1300px;margin:0 auto}
+.nw-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:22px}
+.nw-feat{background:#fff;border-radius:var(--r-md);overflow:hidden;box-shadow:var(--s-sm);cursor:pointer;transition:transform .2s,box-shadow .2s}
+.nw-feat:hover{transform:translateY(-3px);box-shadow:var(--s-hover)}
+.nw-feat .nf-img{height:220px;overflow:hidden}
+.nw-feat .nf-bg{width:100%;height:100%;transition:transform .3s}
+.nw-feat:hover .nf-bg{transform:scale(1.04)}
+.nw-feat .body{padding:22px}
+.nw-compact{display:flex;flex-direction:column;gap:14px}
+.nc{display:flex;gap:12px;background:#fff;border-radius:var(--r-md);padding:12px;box-shadow:var(--s-sm);cursor:pointer;transition:transform .15s,box-shadow .15s;border-left:2px solid transparent}
+.nc:hover{transform:translateX(3px);box-shadow:var(--s-md)}
+.nc.pin{border-left-color:var(--gold)}
+.nc-th{width:68px;height:68px;border-radius:var(--r-sm);flex-shrink:0;overflow:hidden}
+.nc-bd{min-width:0}
+.nc-bd h4{font-family:var(--font-h);font-weight:600;font-size:.85rem;line-height:1.3;margin-bottom:2px}
+.nc-bd .dt{font-size:.72rem;color:var(--grey-500);margin-bottom:3px}
+.nc-bd p{font-size:.78rem;color:var(--grey-700);display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+@media(max-width:860px){.nw-grid{grid-template-columns:1fr}.nw-feat .nf-img{height:170px}}
+
+/* ===== ACTIVITY GRID ===== */
+.activities{padding:clamp(44px,5vw,72px) clamp(16px,4vw,48px);max-width:1300px;margin:0 auto}
+.act-grid{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:5px}
+.at{position:relative;border-radius:var(--r-md);overflow:hidden;cursor:pointer;min-height:170px}
+.at.lg{grid-row:1/3}
+.at-bg{position:absolute;inset:0;transition:transform .4s}
+.at:hover .at-bg{transform:scale(1.05)}
+.at-ov{position:absolute;inset:0;transition:all .3s;display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(14px,2vw,24px)}
+.at-ov h3{font-family:var(--font-h);font-weight:700;font-size:clamp(.92rem,1.3vw,1.2rem);color:#fff;transition:transform .3s}
+.at-ov .at-d{font-size:.78rem;color:rgba(255,255,255,.8);margin-top:3px;max-height:0;overflow:hidden;opacity:0;transition:all .3s}
+.at:hover .at-ov .at-d{max-height:40px;opacity:1}
+.at:hover .at-ov h3{transform:translateY(-3px)}
+.at-brd{position:absolute;inset:0;border:2px solid var(--gold);border-radius:var(--r-md);opacity:0;transition:opacity .3s}
+.at:hover .at-brd{opacity:1}
+/* Mobile bento: preserve hierarchy */
+@media(max-width:640px){
+.act-grid{grid-template-columns:1fr 1fr;grid-template-rows:auto auto auto}
+.at.lg{grid-column:1/-1;grid-row:auto;min-height:180px}
+.at{min-height:140px}
+.at.full{grid-column:1/-1;min-height:120px}
+}
+
+/* ===== SPONSORS ===== */
+.sponsors{padding:clamp(28px,3.5vw,44px) clamp(16px,4vw,48px);text-align:center}
+.sp-lbl{font-size:.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--grey-500);font-weight:500;margin-bottom:20px}
+.sp-row{display:flex;align-items:center;justify-content:center;gap:clamp(20px,3.5vw,40px);flex-wrap:wrap}
+.sp-blk{height:28px;border-radius:3px;background:var(--grey-300);opacity:.32;filter:grayscale(100%);transition:all .3s}
+.sp-blk:hover{opacity:.65;filter:grayscale(0%);background:var(--grey-500)}
+
+/* ===== CTA + PRESIDENT ===== */
+.cta{padding:clamp(44px,5vw,72px) clamp(16px,4vw,48px);max-width:1300px;margin:0 auto}
+.cta-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;position:relative}
+.cta-img{border-radius:var(--r-xl) 0 0 var(--r-xl);overflow:hidden;position:relative;min-height:380px}
+.cta-img-bg{width:100%;height:100%;min-height:380px}
+.cta-txt{background:var(--grey-100);border-radius:0 var(--r-xl) var(--r-xl) 0;padding:clamp(28px,3.5vw,48px);display:flex;flex-direction:column;justify-content:center}
+.cta-txt h2{font-family:var(--font-h);font-weight:800;font-size:clamp(1.5rem,2.3vw,2rem);line-height:1.15;margin-bottom:14px}
+.cta-txt p{font-size:.9rem;color:var(--grey-700);margin-bottom:24px;max-width:370px;line-height:1.65}
+.cta-btns{display:flex;flex-wrap:wrap;gap:12px}
+/* President mini feature */
+.president{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:20px;border-top:1px solid var(--grey-200)}
+.pres-photo{width:52px;height:52px;border-radius:50%;background:var(--grey-200);flex-shrink:0;overflow:hidden;border:2px solid var(--gold)}
+.pres-info .pres-name{font-family:var(--font-h);font-weight:600;font-size:.85rem}
+.pres-info .pres-role{font-size:.75rem;color:var(--grey-500)}
+.pres-info .pres-link{font-size:.75rem;color:var(--azure);margin-top:2px;display:inline-block}
+/* Meeting card */
+.meet-card{position:absolute;bottom:-24px;left:50%;transform:translateX(-50%);background:#fff;border-radius:var(--r-md);box-shadow:var(--s-lg);padding:16px 24px;border-top:3px solid var(--gold);z-index:10;display:flex;align-items:center;gap:16px;white-space:nowrap}
+.mc-icon{width:36px;height:36px;border-radius:50%;background:rgba(23,69,143,.07);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+.mc-txt{font-size:.84rem;color:var(--grey-700);line-height:1.5}
+.mc-txt strong{color:var(--grey-900);font-weight:600}
+@media(max-width:860px){
+.cta-grid{grid-template-columns:1fr}
+.cta-img{border-radius:var(--r-xl) var(--r-xl) 0 0;min-height:200px}.cta-img-bg{min-height:200px}
+.cta-txt{border-radius:0 0 var(--r-xl) var(--r-xl)}
+.meet-card{position:relative;bottom:auto;left:auto;transform:none;margin:-16px auto 0;width:calc(100% - 28px)}
+}
+
+/* ===== FOOTER ===== */
+.footer{background:var(--blue-dark);padding:clamp(36px,4.5vw,56px) clamp(16px,4vw,48px) 20px;margin-top:clamp(44px,5vw,72px)}
+.ft-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:clamp(20px,2.5vw,40px);max-width:1200px;margin:0 auto}
+.footer h4{font-family:var(--font-h);font-weight:600;font-size:.88rem;color:#fff;margin-bottom:14px}
+.footer p,.footer a{font-size:.8rem;color:#B8C4D8;line-height:1.65}
+.footer a{display:block;padding:2px 0;transition:color .15s}
+.footer a:hover{color:#fff}
+.ft-div{border:none;border-top:1px solid rgba(255,255,255,.1);margin:28px auto 14px;max-width:1200px}
+.ft-copy{text-align:center;font-size:.72rem;color:rgba(184,196,216,.45);max-width:1200px;margin:0 auto}
+@media(max-width:768px){.ft-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.ft-grid{grid-template-columns:1fr}}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease}
+.rv.vis{opacity:1;transform:translateY(0)}
+.rv-1{transition-delay:.08s}.rv-2{transition-delay:.16s}.rv-3{transition-delay:.24s}.rv-4{transition-delay:.32s}.rv-5{transition-delay:.4s}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav-bar" id="nav">
+  <a href="#" class="logo"><span class="wheel"></span> Rotary Club of Ely</a>
+  <ul class="nav-links">
+    <li><a href="#" class="active">Events</a></li>
+    <li><a href="#">Our Impact</a></li>
+    <li><a href="#">Our Causes</a></li>
+    <li><a href="#">Latest</a></li>
+    <li><a href="#">About</a></li>
+    <li><a href="#" class="members">Members</a></li>
+    <li><button class="btn-join">Join Us</button></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">Rotary Club of Ely</div>
+    <div class="hero-bar"></div>
+    <h1 class="hero-title">People of Action,<br>Right Here <span>in Ely</span></h1>
+    <p class="hero-sub">We organise events that bring the community together, raise funds for local causes, and create lasting positive change in East Cambridgeshire.</p>
+    <div class="hero-btns">
+      <button class="btn btn-p">See What's Coming Up</button>
+      <button class="btn btn-s">Learn About Us</button>
+    </div>
+  </div>
+  <div class="hero-img-wrap">
+    <div class="deco c1"></div>
+    <div class="deco c2"></div>
+    <div class="hero-img">
+      <div class="hero-img-inner"></div>
+      <div class="img-note">← Club event photography here</div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events-sec">
+  <div class="sec-hdr"><div class="sec-row">
+    <div><div class="eyebrow rv">Upcoming Events</div><h2 class="sec-title rv rv-1">What's Happening in Ely</h2></div>
+    <a href="#" class="sec-link rv rv-2">View all events →</a>
+  </div></div>
+  <div class="ev-grid">
+    <div class="ev-card lg rv">
+      <div class="ev-img" style="height:270px">
+        <div class="ev-img-bg" style="background:linear-gradient(135deg,#1A5DC7,#17458F)"></div>
+        <span class="badge badge-glass">Aquafest</span>
+        <div class="date-pill"><div class="d">5</div><div class="m">Jul</div></div>
+        <div class="badges-row"><span class="badge badge-upcoming">Upcoming</span></div>
+      </div>
+      <div class="ev-body">
+        <h3 class="ev-title">Ely Aquafest 2026</h3>
+        <div class="ev-meta">Sunday 5 July · Riverside, Ely</div>
+        <p class="ev-desc l3">Our flagship summer event returns with boat races, live music, food stalls, and family entertainment along the beautiful River Great Ouse. Something for the whole family.</p>
+        <a href="#" class="ev-link">Read more →</a>
+      </div>
+    </div>
+    <div class="ev-right">
+      <div class="ev-card sm rv rv-1">
+        <div class="ev-img" style="height:125px">
+          <div class="ev-img-bg" style="background:linear-gradient(135deg,#D4900F,#F7A81B)"></div>
+          <span class="badge badge-glass">Community</span>
+          <div class="badges-row"><span class="badge badge-upcoming">Upcoming</span></div>
+        </div>
+        <div class="ev-body">
+          <h3 class="ev-title">Coffee Morning</h3>
+          <div class="ev-meta">Friday 11 April · Ely Methodist Church · 10:00 AM</div>
+          <a href="#" class="ev-link">Read more →</a>
+        </div>
+      </div>
+      <div class="ev-card sm rv rv-2">
+        <div class="ev-img" style="height:125px">
+          <div class="ev-img-bg" style="background:linear-gradient(135deg,#0C2340,#872455)"></div>
+          <span class="badge badge-glass">Social</span>
+          <div class="badges-row"><span class="badge badge-featured">Featured</span></div>
+        </div>
+        <div class="ev-body">
+          <h3 class="ev-title">Ely Rotary Charter Night</h3>
+          <div class="ev-meta">Friday 18 April · Ely Golf Club · 7:00 PM</div>
+          <a href="#" class="ev-link">Read more →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAVE -->
+<div class="wave"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" fill="var(--blue)"><path d="M0,56 C320,5 640,48 960,12 C1160,0 1340,18 1440,8 L1440,56Z"/></svg></div>
+
+<!-- IMPACT -->
+<section class="impact">
+  <div class="imp-deco imp-d1"></div><div class="imp-deco imp-d2"></div><div class="imp-deco imp-d3"></div>
+  <div class="imp-hdr"><div class="eyebrow">Our Impact</div><h2 class="sec-title">Making a Difference in Ely</h2></div>
+  <div class="imp-grid">
+    <div class="imp-item rv"><div class="imp-num"><span class="pf">£</span><span class="ct" data-t="45000">0</span>+</div><div class="imp-bar"></div><div class="imp-lbl">Raised for Local Causes</div></div>
+    <div class="imp-item rv rv-1"><div class="imp-num"><span class="ct" data-t="30">0</span>+</div><div class="imp-bar"></div><div class="imp-lbl">Charities & Causes Supported</div></div>
+    <div class="imp-item rv rv-2"><div class="imp-num"><span class="ct" data-t="15">0</span>+</div><div class="imp-bar"></div><div class="imp-lbl">Years Serving the Community</div></div>
+  </div>
+  <div class="imp-ctx rv rv-3"><p>Since 2010, the Rotary Club of Ely has supported causes across East Cambridgeshire and beyond.</p><a href="#">See Our Charitable Work →</a></div>
+</section>
+
+<!-- WAVE FLIP -->
+<div class="wave flip"><svg viewBox="0 0 1440 56" preserveAspectRatio="none" fill="var(--blue)"><path d="M0,56 C320,5 640,48 960,12 C1160,0 1340,18 1440,8 L1440,56Z"/></svg></div>
+
+<!-- CAUSES -->
+<section class="causes">
+  <div class="sec-hdr"><div class="eyebrow rv">Our Causes</div><h2 class="sec-title rv rv-1">Making a Difference, Locally and Globally</h2></div>
+  <div class="ca-grid">
+    <div class="ca-card rv"><div class="ca-icon" style="background:rgba(212,144,15,.12);color:#B8800D">🔧</div><h3>Tools with a Mission</h3><p>Refurbishing tools and equipment to support livelihoods in developing communities worldwide.</p><span class="ext">Learn more ↗</span></div>
+    <div class="ca-card rv rv-1"><div class="ca-icon" style="background:rgba(45,122,58,.1);color:#2D7A3A">💰</div><h3>Lend with Care</h3><p>Microfinance lending empowering entrepreneurs in developing countries to build sustainable businesses.</p><span class="ext">Learn more ↗</span></div>
+    <div class="ca-card rv rv-2"><div class="ca-icon" style="background:rgba(135,36,85,.08);color:var(--cranberry)">👶</div><h3>Ely Baby Bank</h3><p>Providing essential items for babies and young children to families across East Cambridgeshire.</p></div>
+    <div class="ca-card rv rv-3"><div class="ca-icon" style="background:rgba(247,168,27,.1);color:var(--gold-dark)">❤️</div><h3>Local Charitable Deeds</h3><p>Direct support for Ely residents and community organisations when they need it most.</p></div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="news">
+  <div class="sec-hdr"><div class="sec-row">
+    <div><div class="eyebrow rv">Latest in Ely Rotary</div><h2 class="sec-title rv rv-1">What's Been Happening</h2></div>
+    <a href="#" class="sec-link rv rv-2">View all →</a>
+  </div></div>
+  <div class="nw-grid">
+    <div class="nw-feat rv">
+      <div class="nf-img"><div class="nf-bg" style="background:linear-gradient(135deg,#2a6bcf,#17458F)"></div></div>
+      <div class="body">
+        <span class="badge badge-pinned" style="margin-bottom:10px">📌 Pinned</span>
+        <h3 class="ev-title" style="font-size:1.12rem;margin-bottom:6px">Weekly Highlights: Spring Programme Kicks Off</h3>
+        <div class="ev-meta">4 April 2026</div>
+        <p class="ev-desc l3">This week saw the launch of our Spring community programme with volunteers across three Ely neighbourhoods. Read about the amazing turnout and what's coming next.</p>
+        <a href="#" class="ev-link">Read more →</a>
+      </div>
+    </div>
+    <div class="nw-compact">
+      <div class="nc pin rv rv-1">
+        <div class="nc-th" style="background:linear-gradient(135deg,#D4900F,#F7A81B)"></div>
+        <div class="nc-bd"><h4>New Members Welcome Evening</h4><div class="dt">28 March 2026</div><p>An informal evening to learn about what we do.</p></div>
+      </div>
+      <div class="nc rv rv-2">
+        <div class="nc-th" style="background:linear-gradient(135deg,#0C2340,#1A5DC7)"></div>
+        <div class="nc-bd"><h4>Aquafest Planning Update</h4><div class="dt">21 March 2026</div><p>This year's festival bigger than ever — three new attractions.</p></div>
+      </div>
+      <div class="nc rv rv-3">
+        <div class="nc-th" style="background:linear-gradient(135deg,#872455,#a83070)"></div>
+        <div class="nc-bd"><h4>Baby Bank Collection Success</h4><div class="dt">14 March 2026</div><p>Over 200 items donated during our March drive.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTIVITIES -->
+<section class="activities">
+  <div class="sec-hdr"><div class="eyebrow rv">What We Do</div><h2 class="sec-title rv rv-1">Building Community Through Action</h2></div>
+  <div class="act-grid">
+    <div class="at lg rv">
+      <div class="at-bg" style="background:linear-gradient(135deg,#1A5DC7,#0C2340)"></div>
+      <div class="at-ov" style="background:linear-gradient(to top,rgba(12,35,64,.8),rgba(12,35,64,.15))"><h3>Ely Aquafest</h3><div class="at-d">Our flagship summer festival on the River Great Ouse ↗</div></div>
+      <div class="at-brd"></div>
+    </div>
+    <div class="at rv rv-1">
+      <div class="at-bg" style="background:linear-gradient(135deg,#0C2340,#872455)"></div>
+      <div class="at-ov" style="background:linear-gradient(to top,rgba(12,35,64,.8),rgba(12,35,64,.15))"><h3>Fireworks Night</h3><div class="at-d">East Cambridgeshire's biggest display</div></div>
+      <div class="at-brd"></div>
+    </div>
+    <div class="at rv rv-2">
+      <div class="at-bg" style="background:linear-gradient(135deg,#17458F,#2a6bcf)"></div>
+      <div class="at-ov" style="background:linear-gradient(to top,rgba(12,35,64,.8),rgba(12,35,64,.15))"><h3>Charitable Giving</h3><div class="at-d">Supporting local causes that matter</div></div>
+      <div class="at-brd"></div>
+    </div>
+    <div class="at full rv rv-3" style="grid-column:1/-1;min-height:120px">
+      <div class="at-bg" style="background:linear-gradient(135deg,#D4900F,#F7A81B)"></div>
+      <div class="at-ov" style="background:linear-gradient(to top,rgba(12,35,64,.7),rgba(12,35,64,.12))"><h3>Community Events & Volunteering</h3><div class="at-d">Clean-ups, socials, and hands-on support</div></div>
+      <div class="at-brd"></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section class="sponsors">
+  <div class="sp-lbl rv">Supported By</div>
+  <div class="sp-row rv rv-1">
+    <div class="sp-blk" style="width:95px"></div>
+    <div class="sp-blk" style="width:75px"></div>
+    <div class="sp-blk" style="width:105px"></div>
+    <div class="sp-blk" style="width:68px"></div>
+    <div class="sp-blk" style="width:88px"></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-grid rv">
+    <div class="cta-img"><div class="cta-img-bg" style="background:linear-gradient(135deg,#1a3a6e,#2a6bcf)"></div></div>
+    <div class="cta-txt">
+      <h2>Be Part of<br>Something Bigger</h2>
+      <p>Whether you're looking to give back, make new friends, or develop your skills — there's a place for you at the Rotary Club of Ely. Come along to a meeting and see for yourself.</p>
+      <div class="cta-btns">
+        <button class="btn btn-p">Get in Touch</button>
+        <button class="btn btn-s">Learn More</button>
+      </div>
+      <!-- President feature -->
+      <div class="president">
+        <div class="pres-photo" style="background:linear-gradient(135deg,var(--grey-200),var(--grey-300))"></div>
+        <div class="pres-info">
+          <div class="pres-name">President's Name</div>
+          <div class="pres-role">President, Rotary Club of Ely</div>
+          <a href="#" class="pres-link">Meet the team →</a>
+        </div>
+      </div>
+    </div>
+    <div class="meet-card">
+      <div class="mc-icon">📍</div>
+      <div class="mc-txt"><strong>Every Thursday at 8:00 PM</strong><br>City of Ely Bowls Club</div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="ft-grid">
+    <div><h4>Rotary Club of Ely</h4><p>Serving the Ely community through events, volunteering, and charitable giving. Part of Rotary International's global network of 1.2 million members.</p></div>
+    <div><h4>Explore</h4><a href="#">Events</a><a href="#">Our Impact</a><a href="#">Our Causes</a><a href="#">Latest</a><a href="#">About</a></div>
+    <div><h4>Get Involved</h4><a href="#">Join the Club</a><a href="#">Volunteer</a><a href="#">Contact Us</a><a href="#">Members Portal ↗</a></div>
+    <div><h4>Meet With Us</h4><p>Every Thursday at 8:00 PM<br>City of Ely Bowls Club</p><a href="#" style="margin-top:10px;display:inline-block">hello@rotaryclubofely.co.uk</a></div>
+  </div>
+  <hr class="ft-div">
+  <div class="ft-copy">© 2026 Rotary Club of Ely. Part of Rotary International.</div>
+</footer>
+
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>80));
+document.querySelectorAll('.rv').forEach(el=>new IntersectionObserver(([e])=>{if(e.isIntersecting){e.target.classList.add('vis');e.target._io.disconnect()}},{threshold:.13}).observe((el._io=el,el)));
+document.querySelectorAll('.ct').forEach(el=>{
+  new IntersectionObserver(([e])=>{if(e.isIntersecting){
+    const t=+el.dataset.t,s=performance.now();
+    !function f(n){const p=Math.min((n-s)/1500,1);el.textContent=Math.floor((1-Math.pow(1-p,3))*t).toLocaleString();p<1?requestAnimationFrame(f):el.textContent=t.toLocaleString()}(s);
+    el._io.disconnect()}},{threshold:.3}).observe((el._io=el,el))});
+</script>
+</body>
+</html>
