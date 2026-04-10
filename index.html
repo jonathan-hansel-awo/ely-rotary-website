@@ -28,7 +28,7 @@ a{text-decoration:none;color:inherit}
 /* ===== NAV BAR (rounded rectangle, frosted glass) ===== */
 .nav-bar{position:fixed;top:12px;left:50%;transform:translateX(-50%);z-index:100;width:min(94vw,1200px);height:56px;border-radius:var(--r-md);display:flex;align-items:center;justify-content:space-between;padding:0 10px 0 20px;transition:all .35s ease;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.06);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px)}
 .nav-bar.scrolled{background:rgba(255,255,255,.93);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-color:rgba(0,0,0,.06);box-shadow:var(--s-md)}
-.nav-bar .logo{display:flex;align-items:center;gap:8px;font-family:var(--font-h);font-weight:700;font-size:.88rem;color:#fff;white-space:nowrap;transition:color .35s}
+.nav-bar .logo{display:flex;align-items:center;gap:8px;font-family:var(--font-h);font-weight:700;font-size:.88rem;color:var(--gold);white-space:nowrap;transition:color .35s}
 .nav-bar.scrolled .logo{color:var(--blue)}
 .logo .wheel{width:26px;height:26px;border-radius:50%;background:var(--gold);position:relative;flex-shrink:0}
 .logo .wheel::after{content:'';position:absolute;inset:4px;border-radius:50%;border:2px solid rgba(255,255,255,.5)}
@@ -257,11 +257,11 @@ a{text-decoration:none;color:inherit}
 <nav class="nav-bar" id="nav">
   <a href="#" class="logo"><span class="wheel"></span> Rotary Club of Ely</a>
   <ul class="nav-links">
-    <li><a href="#" class="active">Events</a></li>
+    <li><a href="#">Events</a></li>
     <li><a href="#">Our Impact</a></li>
     <li><a href="#">Our Causes</a></li>
     <li><a href="#">Latest</a></li>
-    <li><a href="#">About</a></li>
+    <li><a href="#" class="active">About</a></li>
     <li><a href="#" class="members">Members</a></li>
     <li><button class="btn-join">Join Us</button></li>
   </ul>
